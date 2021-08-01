@@ -5,8 +5,7 @@
 
     <div class="shadow rounded-lg p-4 bg-white mb-5">
 
-{{--        @include('forum._author', [ 'user' => $save['user'], 'created_at' => $save->created_at->diffForHumans() ])--}}
-
+        @include('forum._author', [ 'user' => $save['user'], 'created_at' => \Carbon\Carbon::create($save['created_at'])->diffForHumans() ])
 
         <div class="font-bold">
             {{ $save['forum']['title'] }}

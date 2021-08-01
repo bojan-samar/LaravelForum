@@ -1,5 +1,5 @@
 <section>
-    <div id="forum" class="bg-white py-12 px-4">
+    <div id="forum" class="bg-white pt-5 pb-12 px-4">
 
         <div class="mb-5 container">
 

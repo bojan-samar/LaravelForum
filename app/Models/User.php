@@ -58,7 +58,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $appends = [
-        'profile_photo_url',
+        'profile_photo_url', 'alias'
     ];
 
     protected $roles = [
@@ -102,6 +102,16 @@ class User extends Authenticatable
     public function forums(){
 
         return $this->hasMany(Forum::class)->latest();
+    }
+
+    public function getAliasAttribute()
+    {
+        $name = explode(' ', $this->name);
+        $alias = $name[0];
+        if(!empty($name[1])){
+            $alias = $alias . " " . substr($name[1],0,1) .'.';
+        }
+        return Str::title($alias);
     }
 
 
