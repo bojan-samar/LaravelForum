@@ -20,7 +20,7 @@
 
             <div class="mb-5">
                 <x-jet-label value="{{ __('Body') }}" />
-                <textarea wire:model.defer="state.body" rows="5" class="form-input w-full"></textarea>
+                <textarea wire:model.defer="state.body" rows="5" class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"></textarea>
                 @error('state.body')
                     <div class="text-red-600 text-sm mt-1">{{ $message }}</div>
                 @enderror

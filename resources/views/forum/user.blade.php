@@ -5,13 +5,13 @@
         }
     </style>
 
-    <section class="container max-w-xl pt-8">
+    <section class="max-w-3xl mx-auto pt-8">
         <div class="flex items-center">
             <div class="p-4">
                 <img style="max-height: 10rem" class="rounded-full" src="{{ $user['profile_photo_url'] }}" alt="{{ $user['name'] }}">
             </div>
             <div class="p-4">
-                <div><b>Name:</b> {{ $user->forum_user_alias }}</div>
+                <div><b>Name:</b> {{ $user->alias }}</div>
                 <div><b>Posts: </b> {{ $user->forums->count() }}</div>
             </div>
         </div>
@@ -23,7 +23,7 @@
         @forelse ($user->forums as $forum)
             <div class="shadow rounded-lg p-4 bg-white mb-5">
 
-                <div class="mt-5 font-bold">
+                <div class="font-bold">
                     <a href="{{ route('forum.show', $forum->slug) }}">
                         <h2>{{ $forum->title }}</h2>
                     </a>

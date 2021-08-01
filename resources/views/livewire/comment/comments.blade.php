@@ -21,7 +21,7 @@
                     <form id="new-comment" wire:submit.prevent="postComment" class="max-w-2xl">
                         <textarea id="reply" type="text"
                                   wire:model.defer="newCommentState.body"
-                                  class="w-full @error('newCommentState.body') border-red-500 @enderror"
+                                  class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full @error('newCommentState.body') border-red-500 @enderror"
                                   name="reply"
                                   rows="5">
                         </textarea>
