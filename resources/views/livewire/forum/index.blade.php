@@ -34,6 +34,7 @@
 
         </div>
 
+
     @empty
 
         <div class="shadow rounded-lg p-4 bg-white mb-5 text-center font-bold text-2xl">

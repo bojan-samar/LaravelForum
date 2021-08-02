@@ -25,3 +25,9 @@ Route::get('forum/user/{user}', [\App\Http\Controllers\ForumController::class, '
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::view('forum-saved', 'forum.saved')->name('forum.saved');
 });
+
+//Admin
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['role:admin']], function () {
+    Route::resource('forum', \App\Http\Controllers\Admin\ForumController::class);
+    Route::view('comment', 'admin.forum.comment')->name('comment.index');
+});

@@ -8,7 +8,9 @@
         @include('forum._author', [ 'user' => $save['user'], 'created_at' => \Carbon\Carbon::create($save['created_at'])->diffForHumans() ])
 
         <div class="font-bold">
-            {{ $save['forum']['title'] }}
+            <a href="{{ route('forum.show', $save['forum']['slug'] ) }}">
+                <h2>{{ $save['forum']['title'] }}</h2>
+            </a>
         </div>
 
         <div class="text-base">
