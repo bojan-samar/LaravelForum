@@ -8,7 +8,7 @@
     <section class="max-w-3xl mx-auto pt-8">
         <div class="flex items-center">
             <div class="p-4">
-                <img style="max-height: 10rem" class="rounded-full" src="{{ $user['profile_photo_url'] }}" alt="{{ $user['name'] }}">
+                <img class="h-24 w-24 rounded-full object-cover" src="{{ $user['profile_photo_url'] }}" alt="{{ $user['name'] }}">
             </div>
             <div class="p-4">
                 <div><b>Name:</b> {{ $user->alias }}</div>
