@@ -10,9 +10,12 @@ class Show extends Component
     public $confirmingDeletion;
     public $comment;
     public $editingComment;
+    public $replyingComment;
+    public $reply;
 
     protected $rules = [
         'comment.body' => 'required|string|min:4',
+        'reply' => 'required|string|min:4',
     ];
 
     public function mount($commentId){
@@ -25,7 +28,23 @@ class Show extends Component
         $this->emitUp('back');
     }
 
+    public function postReply(){
+        $this->validate();
+
+        ForumComment::create([
+            'user_id' => auth()->user()->id,
+            'forum_id' => $this->comment->forum_id,
+            'parent_id' => $this->comment->parent_id,
+            'body' => $this->reply,
+         ]);
+
+        $this->reply ='';
+
+        $this->replyingComment = false;
+    }
+
     public function update(){
+        $this->validate();
         $this->comment->update();
         $this->editingComment = false;
     }

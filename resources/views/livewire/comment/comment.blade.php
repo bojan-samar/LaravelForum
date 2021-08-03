@@ -6,15 +6,9 @@
     @if($isEditing)
         <div class="max-w-2xl mt-2">
             <form wire:submit.prevent="postEdit">
-                        <textarea type="text"
-                                  wire:model.defer="editState.body"
-                                  class="form-input block w-full @error('editState.body') border-red-500 @enderror"
-                                  name="reply"
-                                  rows="5">
-                        </textarea>
-
+                <x-resizable-textarea class="mt-1" wire:model.defer="editState.body"></x-resizable-textarea>
                 @error('editState.body')
-                <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
+                    <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
                 @enderror
 
                 <div>
@@ -26,7 +20,6 @@
                         Submit
                     </x-jet-button>
                 </div>
-
 
             </form>
         </div>
@@ -82,7 +75,7 @@
 
                         <x-slot name="footer">
                             <x-jet-secondary-button wire:click="$toggle('confirmingDeletion')" wire:loading.attr="disabled">
-                                {{ __('Nevermind') }}
+                                {{ __('Cancel') }}
                             </x-jet-secondary-button>
 
                             <x-jet-danger-button class="ml-2" wire:click="destroy" wire:loading.attr="disabled">
@@ -98,15 +91,10 @@
             @if ($isReplying)
                 <div class="max-w-2xl mt-2">
                     <form wire:submit.prevent="postReply">
-                        <textarea id="reply" type="text"
-                            wire:model.defer="replyState.body"
-                            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full @error('replyState.body') border-red-500 @enderror"
-                            name="reply"
-                            rows="5">
-                        </textarea>
+                        <x-resizable-textarea class="mt-1" wire:model.defer="replyState.body"></x-resizable-textarea>
 
                         @error('replyState.body')
-                        <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
+                            <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
                         @enderror
 
                         <div>

@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -78,6 +79,13 @@ class User extends Authenticatable
         });
 
     }
+
+
+    protected function defaultProfilePhotoUrl()
+    {
+        return Storage::disk('public')->url('icons/avatar.svg');
+    }
+
 
     public function hasRole($role){
         //CHECK IF ROLE REQUESTED EXISTS

@@ -5,5 +5,6 @@
         <a href="/forum">
             <x-jet-button>See Forum</x-jet-button>
         </a>
+        
     </div>
 </x-app-layout>
