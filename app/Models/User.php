@@ -83,7 +83,7 @@ class User extends Authenticatable
 
     protected function defaultProfilePhotoUrl()
     {
-        return Storage::disk('public')->url('icons/avatar.svg');
+        return asset("/assets/avatar.svg");
     }
 
 
