@@ -31,7 +31,7 @@
             <div class="flex-1 flex-col relative z-0 overflow-y-auto">
                 @include('admin.layout.header')
                 <div class="py-8 bg-gray-100 rounded-xl m-1 md:mx-4" style="min-height: 88%;border-radius: 0.8rem;">
-                    <div class="px-2 md:px-4 md:container">
+                    <div class="px-4 md:container">
                         @yield('content')
                     </div>
                 </div>
