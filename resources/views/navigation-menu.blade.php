@@ -138,7 +138,7 @@
                     </x-jet-responsive-nav-link>
 
                     @if (auth()->user()->hasRole('admin'))
-                        <x-jet-responsive-nav-link href="{{ route('admin.forum.index') }}" :active="request()->routeIs('admin.forum.index')">
+                        <x-jet-responsive-nav-link href="{{ route('admin.dashboard.index') }}" :active="request()->routeIs('admin.dashboard.index')">
                             {{ __('Admin') }}
                         </x-jet-responsive-nav-link>
                     @endif

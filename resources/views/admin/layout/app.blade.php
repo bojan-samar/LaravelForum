@@ -17,7 +17,7 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
     @livewireStyles
 
-    @yield('meta')
+    @stack('meta')
 
 </head>
 

@@ -7,25 +7,11 @@
     </x-jet-secondary-button>
 
     <div class="shadow rounded-lg p-4 bg-white">
-        @include('forum._author', [ 'user' => $forum->user, 'created_at' => $forum->created_at->diffForHumans() ])
 
-        <div class="mt-2 font-bold">
-            <a href="{{ route('forum.show', $forum->slug) }}">
-                <h2>{{ $forum->title }}</h2>
-            </a>
-        </div>
-        <div class="text-base">
-            {{ $forum->body }}
-        </div>
-        <div class="mt-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-            </svg>
-            <span class="text-base">{{  $forum->comments->count() }}</span>
-        </div>
+        <x-forum.post :user="$forum->user" :post="$forum"></x-forum.post>
 
         <div id="forum-action" class="mt-5 flex">
-            
+
             <div id="forum-edit" class="mr-3">
                 <x-jet-secondary-button size="md" wire:click="$set('editingForum', true)">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -42,21 +28,16 @@
 
                     <x-slot name="content">
 
-
                         <form wire:submit.prevent="update">
                             <div class="mb-5">
                                 <x-jet-label value="{{ __('Title') }}" />
                                 <x-jet-input class="block mt-1 w-full" type="text" name="title" wire:model.defer="forum.title"/>
-                                @error('forum.title')
-                                    <div class="text-red-600 text-sm mt-1">{{ $message }}</div>
-                                @enderror
+                                <x-jet-input-error for="forum.title" />
                             </div>
                             <div class="mb-5">
                                 <x-jet-label value="{{ __('Comment') }}" />
                                 <x-resizable-textarea class="mt-1" wire:model.defer="forum.body"></x-resizable-textarea>
-                                @error('forum.body')
-                                    <div class="text-red-600 text-sm mt-1">{{ $message }}</div>
-                                @enderror
+                                <x-jet-input-error for="forum.body" />
                             </div>
                         </form>
                     </x-slot>

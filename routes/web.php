@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 //Admin
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['role:admin']], function () {
+    Route::view('dashboard', 'admin.dashboard')->name('dashboard.index');
     Route::view('forum', 'admin.forum.forum')->name('forum.index');
     Route::view('comment', 'admin.forum.comment')->name('comment.index');
 });
