@@ -8,8 +8,11 @@
     </x-jet-secondary-button>
 
     <div class="shadow rounded-lg p-4 bg-white">
+        @include('forum._author', [ 'user' => $comment['user'], 'created_at' => $comment->created_at->diffForHumans() ])
 
-        <x-forum.post :user="$comment->user" :post="$comment"></x-forum.post>
+        <div id="comment-body" class="text-base">
+            {{ $comment->body }}
+        </div>
 
         <div id="original-post" class="mt-3 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -69,8 +72,9 @@
 
                     <x-slot name="content">
                         <x-resizable-textarea class="mt-1" wire:model.defer="reply"></x-resizable-textarea>
-                        <x-jet-input-error for="reply" />
-
+                        @error('reply')
+                        <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
+                        @enderror
                     </x-slot>
 
                     <x-slot name="footer">
