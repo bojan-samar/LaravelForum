@@ -1,5 +1,8 @@
 <section>
-    <div class="flex items-center justify-end mb-4">
+    <div class="flex items-center justify-between mb-4">
+
+        <div class="font-medium">Forum Comments</div>
+
         <x-jet-dropdown align="right" width="48">
             <x-slot name="trigger">
                 <x-jet-secondary-button>
@@ -35,11 +38,11 @@
 
     <div class="shadow rounded-lg p-4 bg-white">
 
-        <x-bar-chart chartId="{{ $chartId }}"
+        <x-chart.bar-chart chartId="{{ $chartId }}"
                      title="{{ $dayRange }} Day Comment Posts"
                      labels="{!! $state['date'] !!}"
                      chartData="{!! $state['count'] !!}"
-        ></x-bar-chart>
+        ></x-chart.bar-chart>
 
     </div>
 

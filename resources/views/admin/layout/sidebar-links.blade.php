@@ -1,5 +1,4 @@
 <ul>
-
     <li>
         <a href="{{ route('admin.dashboard.index') }}"
            class="mb-1 px-2 py-2 rounded-lg flex items-center text-gray-700 hover:text-blue-600 hover:bg-blue-100 {{ request()->routeIs('admin.dashboard.*') ? 'bg-blue-100 text-white' : '' }}">

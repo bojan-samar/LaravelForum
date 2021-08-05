@@ -4,5 +4,7 @@
             background: #f3f4f6 !important;
         }
     </style>
-    @livewire('forum.main', key('forum'))
+    <div class="px-4 md:px-0">
+        @livewire('forum.main', key('forum'))
+    </div>
 </x-app-layout>

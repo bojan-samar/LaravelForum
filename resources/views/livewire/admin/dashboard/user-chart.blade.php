@@ -1,5 +1,6 @@
 <section>
-    <div class="flex items-center justify-end mb-4">
+    <div class="flex items-center justify-between mb-4">
+        <div class="font-medium">User Sign Ups</div>
         <x-jet-dropdown align="right" width="48">
             <x-slot name="trigger">
                 <x-jet-secondary-button>
@@ -35,11 +36,11 @@
 
     <div class="shadow rounded-lg p-4 bg-white">
 
-        <x-bar-chart chartId="{{ $chartId }}"
+        <x-chart.line-chart chartId="{{ $chartId }}"
                      title="{{ $dayRange }} Day User Sign Ups"
                      labels="{!! $state['date'] !!}"
                      chartData="{!! $state['count'] !!}"
-        ></x-bar-chart>
+        ></x-chart.line-chart>
 
     </div>
 

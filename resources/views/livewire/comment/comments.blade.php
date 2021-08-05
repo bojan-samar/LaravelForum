@@ -1,9 +1,8 @@
 <section id="comments" class="bg-gray-100 py-12">
-    <div class="container mx-auto">
+    <div class="container px-4 md:px-0 mx-auto">
         <div class="shadow rounded-lg p-4 bg-white">
 
             <div class="font-bold mb-5 text-xl">Comments</div>
-
 
             @auth
                 <div class="mb-8">

@@ -13,13 +13,17 @@ class Post extends Component
      * @return void
      */
 
-     public $user;
-     public $post;
+    public $user;
+    public $post;
+    public $limitBody;
+    public $linked;
 
-    public function __construct(User $user, $post)
+    public function __construct(User $user, $post, $limitBody = false, $linked = true)
     {
         $this->user = $user;
         $this->post = $post;
+        $this->limitBody = $limitBody;
+        $this->linked = $linked;
     }
 
     /**

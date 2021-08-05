@@ -13,7 +13,7 @@
             @foreach($comments as $comment)
                 <x-table.row class="cursor-pointer" wire:click="$emitUp('selectComment', {{ $comment->id }})">
                     <x-table.cell>{{ $comment->id }}</x-table.cell>
-                    <x-table.cell>{{ $comment->body }}</x-table.cell>
+                    <x-table.cell>{{ \Illuminate\Support\Str::limit($comment->body, 185, '...') }}</x-table.cell>
                     <x-table.cell>{{ $comment->created_at->diffForHumans() }}</x-table.cell>
                 </x-table.row>
             @endforeach

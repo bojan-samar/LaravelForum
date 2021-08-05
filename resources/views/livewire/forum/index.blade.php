@@ -14,7 +14,7 @@
 
         <div class="shadow rounded-lg p-4 bg-white mb-5">
 
-            <x-forum.post :user="$forum['user']" :post="$forum"></x-forum.post>
+            <x-forum.post limitBody="true" :user="$forum['user']" :post="$forum"></x-forum.post>
 
         </div>
 

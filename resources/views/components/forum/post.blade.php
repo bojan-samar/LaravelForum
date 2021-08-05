@@ -16,14 +16,26 @@
 
     @isset ($post->title)
         <div id="post-title" class="mt-2 font-bold">
-            <a href="{{ route('forum.show', $post->slug) }}">
+            @if ($linked)
+                <a href="{{ route('forum.show', $post->slug) }}">
+                    <h2>{{ $post->title }}</h2>
+                </a>
+            @else
                 <h2>{{ $post->title }}</h2>
-            </a>
-        </div> 
+            @endif
+
+        </div>
     @endisset
 
     <div id="post-body" class="text-base">
-        {{ $post->body }}
+        @if ($linked)
+            <a href="{{ route('forum.show', $post->slug) }}">
+                {{ $limitBody ? \Illuminate\Support\Str::limit($post->body,185,'...') :  $post->body}}
+            </a>
+        @else
+            {{ $limitBody ? \Illuminate\Support\Str::limit($post->body,185,'...') :  $post->body}}
+        @endif
+
     </div>
 
     @isset ($post->comments)

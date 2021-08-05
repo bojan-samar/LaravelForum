@@ -9,7 +9,9 @@
 
         <!-- Brand Logo / Name -->
         <div class="flex items-center px-6 py-3 h-16">
-            <div class="text-2xl font-bold tracking-tight text-gray-800">Dashing Admin.</div>
+            <div class="text-2xl font-bold tracking-tight text-gray-800">
+                <a href="/">Dashing Admin.</a>
+            </div>
         </div>
         <!-- @end Brand Logo / Name -->
 
@@ -23,12 +25,15 @@
 </div>
 
 
+
 <!-- Menu Above Medium Screen -->
 <div class="bg-white w-64 min-h-screen overflow-y-auto hidden md:block relative z-30">
 
     <!-- Brand Logo / Name -->
     <div class="flex items-center px-6 py-3 h-16">
-        <div class="text-2xl font-bold tracking-tight text-gray-800">Dashing Admin.</div>
+        <div class="text-2xl font-bold tracking-tight text-gray-800">
+            <a href="/">Home</a>
+        </div>
     </div>
     <!-- @end Brand Logo / Name -->
 
